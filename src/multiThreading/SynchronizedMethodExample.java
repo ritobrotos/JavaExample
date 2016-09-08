@@ -18,18 +18,8 @@ class CounterThread extends Thread{
     }
 
     public void run() {
-    	Thread t = Thread.currentThread();
-        String name = t.getName();
-        
-//    	for(int i=0; i<10; i++)
-//    		counter.add(1);
-//    	System.out.println(counter.count);
-        
-        for(int i=0; i<5; i++){
+        for(int i=0; i<5; i++)
         	counter.add(1);
-        	counter.print(name + " " + i + "    value: " + counter.count);
-        }
-        System.out.println("   " + counter.count);
     }
 }
 
@@ -37,9 +27,9 @@ class Counter{
     long count = 0;
     public synchronized void add(long value){
     	this.count += value;
+    	System.out.println(this.count);
     }
-    
-    public synchronized void print(String val){
-		System.out.println(val);
-	}
 }
+
+
+

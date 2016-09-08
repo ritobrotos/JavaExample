@@ -3,32 +3,20 @@
 package multiThreading;
 
 public class ThreadInterruptionEg1  {
-	
 	public static void main(String args[]) {
 		process1();
-//		process2();
 	}  
 	
-	static void process2(){
-		NormalThreadHandlingInterrupt t1 = new NormalThreadHandlingInterrupt();
-		t1.start();
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException e1) {
-			e1.printStackTrace();
-		}
-		t1.interrupt();
-	}
-	
 	static void process1() {
-		NormalThread t1 = new NormalThread();
-		t1.start();
+		Thread t1 = new NormalThread();
+		t1.start();		// The thread execution starts here
 		try {
-			Thread.sleep(4000);
+			Thread.sleep(4000);		// Making the main thread sleep for 
+					// 4secs
 		} catch (InterruptedException e1) {
 			e1.printStackTrace();
 		}
-		t1.interrupt();
+		t1.interrupt();		// After 4secs we are interrupting the thread
 	}
 }
 
@@ -43,21 +31,9 @@ class NormalThread extends Thread {
 			// The execution of the Thread stops here.
 			throw new RuntimeException("Thread interrupted..." + e);
 		}
+		// This line won't get printed
 		System.out.println("Thread is still alive");
 	}
 }
 
-class NormalThreadHandlingInterrupt extends Thread {
-	public void run() {
-		try {
-			for(int i=0; i<5; i++){
-				System.out.println("Print time: " + System.currentTimeMillis());
-				Thread.sleep(5000);
-			}
-		} catch (InterruptedException e) {
-			// The execution of the Thread stops here.
-			System.out.println("Thread interrupted..." + e);
-		}
-		System.out.println("Thread is still alive");
-	}
-}
+
