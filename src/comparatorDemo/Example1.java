@@ -16,7 +16,7 @@ public class Example1 {
 		al.add(new Student(106, "Ajay", 27));  
 		al.add(new Student(105, "Jai", 21));  
 		
-		Collections.sort(al,new AgeComparator());
+		Collections.sort(al, new AgeComparator());
 		
 		Iterator it = al.iterator();
 		while(it.hasNext()){
