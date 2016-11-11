@@ -9,4 +9,8 @@ public class Child extends Parent {
 	public void display(){
 		System.out.println("Child Class");
 	}
+	
+	static void staticMeth(){
+		System.out.println("Child Class static Method.");
+	}
 }

@@ -11,11 +11,13 @@ public class ParentChildTester {
 		p.display();
 //		p.childFunction();		// You can't call childFunction here because the instance type is of parent.
 		System.out.println(p.getClass());
+		Parent.staticMeth();
 		
 		Child c = new Child();
 		c.display();
 		c.childFunction();
 		System.out.println(c.getClass());
+		Child.staticMeth();
 	}
 
 }
